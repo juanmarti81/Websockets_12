@@ -1,0 +1,19 @@
+<h4>Mensajes</h4>
+<div>
+  {{#if messages.length}}
+    {{#each messages}}
+    <div style="display: flex; flex-direction: row;">
+      <div style="padding: 5px; font-size:small; font-weight:600;">
+        {{this.date}}
+      </div>
+      <div style="padding: 5px; font-size:small; font-weight:600;">
+        {{this.email}}:
+      </div>
+      <div style="padding: 5px 15px; font-size:small;">
+        {{this.message}}
+      </div>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
+
