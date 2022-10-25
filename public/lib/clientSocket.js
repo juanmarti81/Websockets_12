@@ -1,5 +1,5 @@
 // const socket = io("http://localhost:8080")
-const socket = io("http://150.136.145.245:8080")
+const socket = io("http://websockets.juanmarti.link")
 
 const NuevoProducto = document.getElementById("Nuevo_Producto")
 const showProducts = document.getElementById("productList")
