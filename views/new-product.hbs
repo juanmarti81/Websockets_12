@@ -1,0 +1,48 @@
+<div style="margin: auto; margin-top:50px; width: 800px; border: 1px solid black; padding: 20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+  <h2 style="display:flex; align_items: center; justify-content:center ">Agregar nuevo producto</h2>
+  <br>
+  <form style="padding-left: 20px;" action="/productos" method="post">
+    <label>
+      Nombre del Producto: 
+      <input type="text" name="title" style="padding: 4px;" />
+
+    </label>
+    <br><br/>
+    <label>
+      Precio: 
+      <input type="number" name="price" style="padding: 4px;" />
+
+    </label>
+    <br><br>
+    <label>
+      Url de Imagen: 
+      <input type="text" name="thumbnail" style="padding: 4px;" />
+
+    </label>
+    <br><br>
+    <button type="submit" style="padding: 5px 10px ; background-color:cadetblue; border: 1px solid blue">Enviar</button>
+  </form>
+  {{!-- <br> --}}
+  {{!-- <a href="/productos" style="font-weight: bold ;"><button>Ver Lista de Productos -></button></a> --}}
+
+
+
+</div>
+<br>
+<hr width="900px"/>
+<br>
+{{!-- Listado de Productos --}}
+<div style="margin: auto; width: 800px; border: 1px solid black; padding: 20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <table>
+    <thead>
+      <tr>
+        <td>Producto</td>
+        <td>Precio</td>
+        <td>Imagen</td>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>

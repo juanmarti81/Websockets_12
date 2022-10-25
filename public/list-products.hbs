@@ -1,0 +1,26 @@
+
+<div style="margin: auto; margin-top:50px; width: 800px; border: 1px solid black; padding: 20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+<h2>Lista de Productos</h2>
+<br>
+{{!-- <a href="/" style="font-weight: bold ;"><button>Agregar Producto</button></a>
+<br><br> --}}
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each product}}
+    <tr>
+      <td>{{this.title}}</td>
+      <td style="text-align: center;"><img src={{this.thumbnail}} style="height: 30px ;" /></td>
+      <td style="text-align: center;">{{this.price}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+  
+</div>
