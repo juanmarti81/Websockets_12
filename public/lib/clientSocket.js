@@ -1,5 +1,5 @@
-// const socket = io("http://localhost:8080")
-const socket = io("http://websockets.juanmarti.link")
+const socket = io(process.env.URL)
+// const socket = io("http://websockets.juanmarti.link")
 
 const NuevoProducto = document.getElementById("Nuevo_Producto")
 const showProducts = document.getElementById("productList")
@@ -14,8 +14,6 @@ NuevoProducto.addEventListener("submit", (e) => {
   socket.emit("new-product", values)
   console.log(values)
 })
-
-
 
 socket.on("AllProducts", data => {
   productList(data)
