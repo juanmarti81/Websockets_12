@@ -1,6 +1,5 @@
 import express from "express"
 import cors from "cors"
-import dotenv from "dotenv"
 import {Server as HttpServer} from "http"
 import {Server as WebsocketServer} from "socket.io"
 
@@ -12,15 +11,12 @@ let messageList = new messageDB()
 const app = express()
 const httpServer = new HttpServer(app)
 const io = new WebsocketServer(httpServer)
-dotenv.config()
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
 const PORT = process.env.PORT || 8080
-
-console.log("URL:", process.env.URL)
 
 app.use(express.static("./public"))
 
