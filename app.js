@@ -3,6 +3,8 @@ import cors from "cors"
 import {Server as HttpServer} from "http"
 import {Server as WebsocketServer} from "socket.io"
 
+import { config } from "./config/index.js";
+
 import messageDB from "./models/messagesClass.js"
 import Contenedor from "./models/productsClass.js"
 let contenedor = new Contenedor()
