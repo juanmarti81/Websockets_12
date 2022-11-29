@@ -42,3 +42,4 @@ products_db.schema.hasTable("products").then(exists => {
     })
   }
 })
+

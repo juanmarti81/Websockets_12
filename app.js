@@ -3,16 +3,21 @@ import cors from "cors"
 import {Server as HttpServer} from "http"
 import {Server as WebsocketServer} from "socket.io"
 
-import { config } from "./config/index.js";
+import hbs from 'hbs'
 
+
+import messagesContainer from "./models/messagesMongoClass.js"
 import messageDB from "./models/messagesClass.js"
 import Contenedor from "./models/productsClass.js"
 let contenedor = new Contenedor()
 let messageList = new messageDB()
+let messagesMongo = new messagesContainer()
 
 const app = express()
 const httpServer = new HttpServer(app)
 const io = new WebsocketServer(httpServer)
+
+app.set('view engine', 'hbs');
 
 app.use(cors())
 app.use(express.json())
@@ -23,6 +28,15 @@ const PORT = process.env.PORT || 8080
 app.use(express.static("./public"))
 
 const getProducts = async () => {return await contenedor.getAll()}
+
+import MockService from "./api/productos-test.js"
+const fakerProducts = new MockService()
+
+app.get("/faker", async (req, res) => {
+  const product = await fakerProducts.getAll(10);
+  res.render('faker-list-products', {product});
+}
+)
 
 io.on("connection", socket => {
   returnProducts(socket)
@@ -43,12 +57,13 @@ io.on("connection", socket => {
 
 // ?MESSAGES HANDLING
 const returnMessages = async (socket) => {
-  socket.emit("AllMessages", await messageList.getAllMessages())
+  socket.emit("AllMessages", await messagesMongo.getAllMessages())
 }
 
 const saveMessage = async (data) => {
-  await messageList.save(data)
-  const messages = await messageList.getAllMessages()
+  await messagesMongo.save(data)
+  // await messageList.save(data)
+  const messages = await messagesMongo.getAllMessages()
   io.sockets.emit("AllMessages", messages)
 }
 

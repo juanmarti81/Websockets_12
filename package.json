@@ -12,12 +12,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
     "knex": "^2.3.0",
+    "mongoose": "^6.7.4",
     "mysql2": "^2.3.3",
+    "normalizr": "^3.6.2",
     "socket.io": "^4.5.3",
     "sqlite3": "^5.1.2"
   }

@@ -1,10 +1,15 @@
 // const socket = io(`http://localhost:8080`)
 const socket = io("http://websockets.juanmarti.link")
 
+
+
 const NuevoProducto = document.getElementById("Nuevo_Producto")
 const showProducts = document.getElementById("productList")
 const NuevoMensaje = document.getElementById("Nuevo_Mensaje")
 const showMessages = document.getElementById("messages_List")
+const fakerList = document.getElementById("fakerList")
+
+
 
 NuevoProducto.addEventListener("submit", (e) => {
   e.preventDefault()
@@ -20,10 +25,10 @@ socket.on("AllProducts", data => {
 })
 
 const productList = async (product) => {
-  const res = await fetch("./list-products.hbs")
-  const temp = await res.text() 
+  const res = await fetch("./list-products.hbs");
+  const temp = await res.text();
   const template = Handlebars.compile(temp);
-  const html = template({product})
+  const html = template({product});
   showProducts.innerHTML = html
 }
 
